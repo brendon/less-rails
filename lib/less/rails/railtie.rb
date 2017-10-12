@@ -14,9 +14,7 @@ module Less
       config.before_initialize do |app|
         sprockets_env = app.assets || Sprockets
         if sprockets_env.respond_to?(:register_engine)
-          args = ['.less', Grease.apply(LessTemplate)]
-          args << { mime_type: 'text/less', silence_deprecation: true } if Sprockets::VERSION.start_with?("3")
-          sprockets_env.register_engine(*args)
+          sprockets_env.register_engine '.less', Grease.apply(LessTemplate), { mime_type: 'text/less', silence_deprecation: true }
         end
 
         if sprockets_env.respond_to?(:register_transformer)
