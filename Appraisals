@@ -22,3 +22,8 @@ end
 appraise 'rails51' do
   gem 'rails', '~> 5.1.0'
 end
+
+appraise 'sprockets4' do
+	gem 'rails', '~> 5.1.1'
+	gem 'sprockets', git: 'https://github.com/rails/sprockets.git', branch: 'v4.0.0.beta6'
+end
